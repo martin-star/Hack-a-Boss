@@ -1,20 +1,19 @@
-import axios from 'axios';
+import axios from "axios";
 
+const BASE_URL = "https://5dda901c5730550014fe78e2.mockapi.io/api/v1";
 
-const BASE_URL = 'https://5dda901c5730550014fe78e2.mockapi.io/api/v1';
-
-export function getTask(){
-    return axios.get(`${BASE_URL}/todo`);
+export function getTasks() {
+  return axios.get(`${BASE_URL}/todo`);
 }
 
-export function addTask(task){
-    return axios.post(`${BASE_URL}/todo`,{...task});
+export function addTask(task) {
+  return axios.post(`${BASE_URL}/todo`, { ...task });
 }
 
-export function updateTask(task){
-    return axios.post(`${BASE_URL}/todo/${task.id}`,{...task});
+export function updateTask(task) {
+  return axios.put(`${BASE_URL}/todo/${task.id}`, { ...task });
 }
 
-export function deletTask(id){
-    return axios.delete(`${BASE_URL}/todo/${id}`);
+export function removeTask(id) {
+  return axios.delete(`${BASE_URL}/todo/${id}`);
 }

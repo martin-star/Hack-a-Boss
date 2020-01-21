@@ -1,21 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Header from './components/Header'
-import { BrowserRouter, Route,Switch} from 'react-router-dom';
-import '../node_modules/bootswatch/dist/sketchy/bootstrap.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import Header from "./components/Header";
+import About from "./components/About";
+import Home from "./components/Home";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import "./styles.css";
+import "../node_modules/bootswatch/dist/sketchy/bootstrap.css";
 
-
-function App(){
-    return(
+function App() {
+  return (
     <BrowserRouter>
-            <Header />
-            </BrowserRouter>
-    );
+      <Header />
+      <div className="container mt-4">
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export {App};
+const rootElement = document.getElementById("root");
 
-
-const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
-
